@@ -3,6 +3,12 @@ OnMyWay
 
 An Live CD for system intake for Collins and automated provisioning of bare metal with Ansible.
 
+# Setting up PXE
+    sudo yum -y install syslinux tftp-server
+    sudo sed -i 's/disable\s*=\s*yes/disable = no/' /etc/xinetd.d/tftp
+    sudo cp /usr/share/syslinux/{pxelinux.0,menu.c32,memdisk,mboot.c32,chain.c32} /var/lib/tftpboot
+    sudo mkdir /var/lib/tftpboot/pxelinux.cfg
+
 # Getting started
     sudo yum -y install livecd-tools createrepo git
     git clone git@github.com:funzoneq/OnMyWay.git omw
@@ -10,7 +16,7 @@ An Live CD for system intake for Collins and automated provisioning of bare meta
     sudo ./make
 
 # Moving the image to production
-    sudo yum -y install syslinux tftp-server
-    sudo sed -i 's/disable\s*=\s*yes/disable = no/' /etc/xinetd.d/tftp
-    sudo cp /usr/share/syslinux/{pxelinux.0,menu.c32,memdisk,mboot.c32,chain.c32} /var/lib/tftpboot
-    sudo mkdir /var/lib/tftpboot/pxelinux.cfg
+    sudo mkdir /var/lib/tftpboot/omw/
+    sudo cp tftpboot/{initrd0.img,vmlinuz0} /var/lib/tftpboot/omw/
+    sudo cp omw.iso /var/lib/tftpboot/
+    sudo cp ../pxe/default /var/lib/tftpboot/pxelinux.cfg
