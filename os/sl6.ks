@@ -6,11 +6,11 @@ selinux --disabled
 firewall --disabled
 rootpw onmyway
 services --enabled sshd
-url --url=http://nl.mirror.eurid.eu/scientific/6/x86_64/os/
-repo --name=base     --baseurl=http://nl.mirror.eurid.eu/scientific/6/x86_64/os/
-repo --name=epel     --baseurl=http://download.fedoraproject.org/pub/epel/6/$basearch
-repo --name=fastbugs --baseurl=http://nl.mirror.eurid.eu/scientific/6/x86_64/updates/fastbugs/
-repo --name=security --baseurl=http://nl.mirror.eurid.eu/scientific/6/x86_64/updates/security/
+url --url=http://ftp.nluug.nl/os/Linux/distr/scientific/6/x86_64/os/
+repo --name=base     --baseurl=http://ftp.nluug.nl/os/Linux/distr/scientific/6/x86_64/os/
+repo --name=epel     --baseurl=http://mirrors.kernel.org/fedora-epel/6/x86_64/
+repo --name=fastbugs --baseurl=http://ftp.nluug.nl/os/Linux/distr/scientific/6/x86_64/updates/fastbugs/
+repo --name=security --baseurl=http://ftp.nluug.nl/os/Linux/distr/scientific/6/x86_64/updates/security/
 repo --name=dell     --baseurl=http://linux.dell.com/repo/hardware/latest/platform_independent/rh60_64
 
 %packages --excludedocs

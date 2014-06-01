@@ -7,6 +7,7 @@ ansible
 ipmiutil
 freeipmi
 openssh-server
+git
 %end
 
 %post
