@@ -1,0 +1,8 @@
+#!/bin/bash
+
+# lets build in the image in our shm
+tmpdir="${TMP_DIR:-/dev/shm/omw}"
+createrepo /var/ftp/pub/omw/
+livecd-creator -c omw.ks -f omw -t "$tmpdir/live/" --cache="$tmpdir/livecache/" -v
+rm -rf tftpboot
+livecd-iso-to-pxeboot omw.iso
