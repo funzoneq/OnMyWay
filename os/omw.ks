@@ -29,7 +29,7 @@ sed -i -e 's/HOSTNAME=.*/HOSTNAME=omw/' /etc/sysconfig/network
 
 echo '---> rewromwing /etc/issue'
 cat > /etc/issue <<EOF
-On My Way Live OS v0.0.1
+On My Way Live OS v1.0.1
 Kernel \r
 
 EOF
