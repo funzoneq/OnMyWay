@@ -11,7 +11,7 @@ An Live CD for system intake for Collins and automated provisioning of bare meta
 
 # Getting started
     sudo yum -y install livecd-tools createrepo git
-    git clone git@github.com:funzoneq/OnMyWay.git omw
+    git clone https://github.com/funzoneq/OnMyWay.git omw
     cd omw/os/
     sudo ./make
 
