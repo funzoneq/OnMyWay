@@ -37,6 +37,9 @@ EOF
 cat > /usr/bin/hw_report.sh <<EOF
 #!/bin/bash
 
+# switch to tty7 so that logs show on the screen
+chvt 7
+
 git clone $GITURL /root/dest
 cd /root/dest
 /usr/bin/ansible-playbook playbook.yml --connection=local
