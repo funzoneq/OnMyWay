@@ -1,0 +1,12 @@
+- yum: name={{ item }} state=latest
+  with_items:
+    - lshw
+    - lldpd
+    - ruby
+    - gem
+    
+- shell: /usr/sbin/lshw > /tmp/it-lshw-report.xml
+
+- shell: /usr/sbin/lldpctl > /tmp/it-lldp-report.xml
+
+- gem: name=collins_auth state=latest

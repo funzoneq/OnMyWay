@@ -1,0 +1,16 @@
+---
+- copy: src=omsa.repo dest=/etc/yum.repos.d/omsa.repo owner=root group=root mode=0644
+
+- shell: yum clean all
+
+- shell: yum check-update
+
+- yum: name={{ item }} state=latest
+  with_items:
+    - setupbios
+    - dell_ft_install
+    - raidcfg
+    - syscfg
+    - srvadmin-omacore
+    - srvadmin-omcommon
+    - dell-bmc-utils

@@ -34,6 +34,14 @@ Kernel \r
 
 EOF
 
+cat > /usr/bin/hw_report.sh <<EOF
+#!/bin/bash
+
+git clone $GITURL /root/dest
+cd /root/dest
+/usr/bin/ansible-playbook playbook.yml --connection=local
+
+EOF
 
 echo '---> configuring OpenIPMI'
 /sbin/chkconfig ipmi on
