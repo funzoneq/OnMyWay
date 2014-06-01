@@ -9,6 +9,13 @@ An Live CD for system intake for Collins and automated provisioning of bare meta
     sudo cp /usr/share/syslinux/{pxelinux.0,menu.c32,memdisk,mboot.c32,chain.c32} /var/lib/tftpboot
     sudo mkdir /var/lib/tftpboot/pxelinux.cfg
 
+    echo "allow booting;
+    allow bootp;
+    option option-128 code 128 = string;
+    option option-129 code 129 = text;
+    next-server xxx.xxx.xxx.xxx; 
+    filename "/pxelinux.0";" > /etc/dhcp/dhcpd.conf
+
 # Getting started
     sudo yum -y install livecd-tools createrepo git
     git clone https://github.com/funzoneq/OnMyWay.git omw
