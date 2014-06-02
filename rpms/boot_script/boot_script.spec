@@ -1,6 +1,6 @@
 Name:           boot_script
 Version:        1.0.1
-Release:        1%{?dist}
+Release:        2%{?dist}
 Summary:        Reads /proc/cmdline for arguments to use process as scripts
 Group:          Systems Administration
 License:        Tumblr
@@ -45,6 +45,9 @@ rm -rf $RPM_BUILD_ROOT
 /usr/bin/getstarted
 
 %changelog
+* Mon Jun 02 2014 Arnoud Vermeer <a.vermeer@freshway.biz> 1.0.1-2
+- new package built with tito
+
 * Tue Mar 04 2014 Roy Marantz <marantz@tumblr.com> 1.0.0-9.tumblr
 - fix passing of command exit code (for start)
 - fix testing of command exit codes
