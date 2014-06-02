@@ -45,9 +45,9 @@ function get_network_interfaces {
 }
 
 function check_nic_link {
-    _nic="$1"
-    _link="$(cat /sys/class/net/${_nic}/carrier)"
-    if [ $_link -eq 1 ]
+    _nic="\$1"
+    _link="\$(cat /sys/class/net/\${_nic}/carrier)"
+    if [ \$_link -eq 1 ]
     then
         return 0
     else
@@ -56,8 +56,8 @@ function check_nic_link {
 }
 
 function get_dhcp_ip {
-    _nic="$1"
-    if dhclient -1 $_nic &>/dev/null
+    _nic="\$1"
+    if dhclient -1 \$_nic &>/dev/null
     then
         return 0
     else
@@ -65,11 +65,11 @@ function get_dhcp_ip {
     fi
 }
 
-nics="$(get_network_interfaces)"
+nics="\$(get_network_interfaces)"
 
-for n in $nics
+for n in \$nics
 do
-    /sbin/ip link set $n up
+    /sbin/ip link set \$n up
 done
 
 # chill for a bit in case the network is slow to wake up
@@ -77,18 +77,18 @@ done
 sleep 30s
 
 # find a nic with a link and try dhcp
-for n in $nics
+for n in \$nics
 do
-    if check_nic_link $n
+    if check_nic_link \$n
     then
-        if get_dhcp_ip $n
+        if get_dhcp_ip \$n
         then
             break
         else
-            echo "dhcp failed in $n"
+            echo "dhcp failed in \$n"
         fi
     else
-        echo "no carrier on $n"
+        echo "no carrier on \$n"
     fi
 done
 
