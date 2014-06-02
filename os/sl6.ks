@@ -11,7 +11,8 @@ repo --name=base     --baseurl=http://ftp.nluug.nl/os/Linux/distr/scientific/6/x
 repo --name=epel     --baseurl=http://mirrors.kernel.org/fedora-epel/6/x86_64/
 repo --name=fastbugs --baseurl=http://ftp.nluug.nl/os/Linux/distr/scientific/6/x86_64/updates/fastbugs/
 repo --name=security --baseurl=http://ftp.nluug.nl/os/Linux/distr/scientific/6/x86_64/updates/security/
-repo --name=dell     --baseurl=http://linux.dell.com/repo/hardware/latest/platform_independent/rh60_64
+repo --name=dell     --baseurl=http://linux.dell.com/repo/hardware/latest/platform_independent/rh60_64/
+repo --name=freshway --baseurl=http://vps.us.freshway.biz/CentOS-6-Production-x86_64/RPMS.freshway/
 
 %packages --excludedocs
 aic94xx-firmware
