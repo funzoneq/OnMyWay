@@ -20,8 +20,8 @@ CMD_PID_FILE="/var/run/boot_script_cmd.pid"
 TIMESTAMP=$(date +%Y%m%d%H%M%S)
 DOWNLOAD_NAME="${DOWNLOAD_DIR}/CURLED_SCRIPT_${TIMESTAMP}"
 
-SCRIPT_URL=$(grep -o -e 'SCRIPT_URL=[^ ]*' /proc/cmdline | cut -c12-)
-SCRIPT_CMD=$(grep -o -e 'SCRIPT_CMD=[^ ]*' /proc/cmdline | cut -c12-)
+SCRIPT_URL=$(grep -o -e 'SCRIPT_URL=[^ ]*' /proc/cmdline | awk '{split($0,array,"=")} END{print array[2]}')
+SCRIPT_CMD=$(grep -o -e 'SCRIPT_CMD=[^ ]*' /proc/cmdline | awk '{split($0,array,"=")} END{print array[2]}')
 
 curl_param_url_and_run() {
   RESULT=0

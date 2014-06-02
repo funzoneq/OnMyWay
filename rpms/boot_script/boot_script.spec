@@ -27,6 +27,7 @@ for the following two arguments:
 %install
 rm -rf $RPM_BUILD_ROOT
 mkdir -p $RPM_BUILD_ROOT/etc/init.d/
+mkdir -p $RPM_BUILD_ROOT/usr/bin/
 install -D -m 755 %{SOURCE0} $RPM_BUILD_ROOT/etc/init.d/
 install -D -m 755 %{SOURCE1} $RPM_BUILD_ROOT/usr/bin/
 

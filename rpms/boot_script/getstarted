@@ -52,10 +52,11 @@ do
     fi
 done
 
-GITURL=$(grep -o -e 'GITURL=[^ ]*' /proc/cmdline)
+GITURL=$(grep -o -e 'GITURL=[^ ]*' /proc/cmdline | awk '{split($0,array,"=")} END{print array[2]}')
+PLAYBOOK=$(grep -o -e 'PLAYBOOK=[^ ]*' /proc/cmdline | awk '{split($0,array,"=")} END{print array[2]}')
 
 rm -rf /root/dest
 git clone $GITURL /root/dest
 cd /root/dest
-/usr/bin/ansible-playbook playbook.yml --connection=local
+/usr/bin/ansible-playbook $PLAYBOOK --connection=local
 

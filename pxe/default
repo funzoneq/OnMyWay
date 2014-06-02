@@ -7,4 +7,4 @@ DEFAULT hw_report
 LABEL hw_report
   MENU LABEL Hardware Report - Send a new hardware report to Collins
   KERNEL /omw/vmlinuz0
-  APPEND initrd=/omw/initrd0.img rootflags=loop root=live:/omw.iso rootfstype=auto ro liveimg GITURL=https://github.com/funzoneq/OnMyWay.git SCRIPT_CMD=/usr/bin/getstarted rd_NO_LUKS rd_NO_MD rd_NO_DM console=tty0 console=ttyS1,115200
+  APPEND initrd=/omw/initrd0.img rootflags=loop root=live:/omw.iso rootfstype=auto ro liveimg GITURL=https://github.com/funzoneq/OnMyWay.git SCRIPT_CMD=/usr/bin/getstarted PLAYBOOK=playbook.xml rd_NO_LUKS rd_NO_MD rd_NO_DM console=tty0 console=ttyS1,115200
