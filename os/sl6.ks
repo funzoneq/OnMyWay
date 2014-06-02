@@ -68,6 +68,7 @@ rootfiles
 rpm
 rsyslog
 selinux-policy-targeted
+system-config-firewall-base
 setup
 shadow-utils
 sudo
