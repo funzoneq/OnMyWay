@@ -1,0 +1,61 @@
+#!/bin/bash
+
+function get_network_interfaces {
+    ls /sys/class/net | grep -v 'lo'
+}
+
+function check_nic_link {
+    _nic="$1"
+    _link="$(cat /sys/class/net/${_nic}/carrier)"
+    if [ $_link -eq 1 ]
+    then
+        return 0
+    else
+        return 1
+    fi
+}
+
+function get_dhcp_ip {
+    _nic="$1"
+    if dhclient -1 $_nic &>/dev/null
+    then
+        return 0
+    else
+        return 1
+    fi
+}
+
+nics="$(get_network_interfaces)"
+
+for n in $nics
+do
+    /sbin/ip link set $n up
+done
+
+# chill for a bit in case the network is slow to wake up
+# 30s allows lldpd time to send hellos
+sleep 30s
+
+# find a nic with a link and try dhcp
+for n in $nics
+do
+    if check_nic_link $n
+    then
+        if get_dhcp_ip $n
+        then
+            break
+        else
+            echo "dhcp failed in $n"
+        fi
+    else
+        echo "no carrier on $n"
+    fi
+done
+
+GITURL=$(grep -o -e 'GITURL=[^ ]*' /proc/cmdline)
+
+rm -rf /root/dest
+git clone $GITURL /root/dest
+cd /root/dest
+/usr/bin/ansible-playbook playbook.yml --connection=local
+
