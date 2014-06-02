@@ -76,6 +76,7 @@ vim-minimal
 yum
 dracut-fips
 dracut-network
+epel-release
 
 -mysql-libs
 -cronie
