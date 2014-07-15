@@ -1,6 +1,10 @@
 - get_url: url=http://download.opensuse.org/repositories/home:vbernat/CentOS_CentOS-6/home:vbernat.repo dest=/etc/yum.repos.d/vbernat.repo mode=0644 owner=root group=root
 
+- copy: src=sl.repo dest=/etc/yum.repos.d/sl.repo owner=root group=root mode=0644
+
 - command: rpm --import /etc/pki/rpm-gpg/RPM-GPG-KEY-EPEL-6
+
+- shell: yum clean all
 
 - yum: name={{ item }} state=latest
   with_items:

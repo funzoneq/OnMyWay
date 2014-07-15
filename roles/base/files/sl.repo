@@ -1,0 +1,33 @@
+[sl]
+name=Scientific Linux $releasever - $basearch
+#baseurl=http://ftp.nluug.nl/os/Linux/distr/scientific/6/x86_64/os/
+mirrorlist=http://ftp.scientificlinux.org/linux/scientific/mirrorlist/sl-base-6.txt
+enabled=1
+gpgcheck=1
+gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-sl file:///etc/pki/rpm-gpg/RPM-GPG-KEY-sl6 file:///etc/pki/rpm-gpg/RPM-GPG-KEY-cern
+
+[sl-fastbugs]
+name=Scientific Linux $releasever - $basearch - fastbugs
+#baseurl=http://ftp.nluug.nl/os/Linux/distr/scientific/6/x86_64/updates/fastbugs/
+mirrorlist=http://ftp.scientificlinux.org/linux/scientific/mirrorlist/sl-fastbugs-6.txt
+enabled=1
+gpgcheck=1
+gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-sl file:///etc/pki/rpm-gpg/RPM-GPG-KEY-sl6 file:///etc/pki/rpm-gpg/RPM-GPG-KEY-cern
+
+[sl-security]
+name=Scientific Linux $releasever - $basearch - security updates
+#baseurl=http://ftp.nluug.nl/os/Linux/distr/scientific/6/x86_64/updates/security/
+mirrorlist=http://ftp.scientificlinux.org/linux/scientific/mirrorlist/sl-security-6.txt
+enabled=1
+gpgcheck=1
+gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-sl file:///etc/pki/rpm-gpg/RPM-GPG-KEY-sl6 file:///etc/pki/rpm-gpg/RPM-GPG-KEY-cern
+
+[sl-source]
+name=Scientific Linux $releasever - Source
+baseurl=http://ftp.scientificlinux.org/linux/scientific/$releasever/SRPMS/
+		http://ftp1.scientificlinux.org/linux/scientific/$releasever/SRPMS/
+		http://ftp2.scientificlinux.org/linux/scientific/$releasever/SRPMS/
+		ftp://ftp.scientificlinux.org/linux/scientific/$releasever/SRPMS/
+enabled=0
+gpgcheck=1
+gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-sl file:///etc/pki/rpm-gpg/RPM-GPG-KEY-sl6 file:///etc/pki/rpm-gpg/RPM-GPG-KEY-cern
