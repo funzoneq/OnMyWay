@@ -79,6 +79,21 @@ yum
 dracut-fips
 dracut-network
 epel-release
+gcc-c++
+patch
+readline
+readline-devel
+zlib
+zlib-devel
+libyaml-devel
+libffi-devel
+openssl-devel
+make
+bzip2
+autoconf
+automake
+libtool
+bison
 
 -mysql-libs
 -cronie
