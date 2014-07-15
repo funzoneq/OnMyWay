@@ -1,9 +1,7 @@
 - shell: curl -L get.rvm.io | bash -s stable
 
-- shell: source /etc/profile.d/rvm.sh
+- shell: source /etc/profile.d/rvm.sh && rvm install 1.9.3
 
-- shell: rvm install 1.9.3
+- shell: source /etc/profile.d/rvm.sh && rvm use 1.9.3 --default 
 
-- shell: rvm use 1.9.3 --default 
-
-- shell: rvm rubygems current
+- shell: source /etc/profile.d/rvm.sh && rvm rubygems current
