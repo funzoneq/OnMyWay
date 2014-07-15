@@ -7,7 +7,7 @@
     - lshw
     - lldpd
     - ruby
-    - gem
+    - rubygems
     
 - shell: /usr/sbin/lshw > /tmp/it-lshw-report.xml creates=/tmp/it-lshw-report.xml
 
