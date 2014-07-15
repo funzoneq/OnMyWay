@@ -1,0 +1,28 @@
+- yum: name={{ item }} state=latest
+  with_items:
+    - gcc-c++
+    - patch
+    - readline
+    - readline-devel
+    - zlib
+    - zlib-devel
+    - libyaml-devel
+    - libffi-devel
+    - openssl-devel
+    - make
+    - bzip2
+    - autoconf
+    - automake
+    - libtool
+    - bison
+    - iconv-devel
+    
+- shell: curl -L get.rvm.io | bash -s stable
+
+- shell: source /etc/profile.d/rvm.sh
+
+- shell: rvm install 1.9.3
+
+- shell: rvm use 1.9.3 --default 
+
+- shell: rvm rubygems current

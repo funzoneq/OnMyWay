@@ -6,8 +6,6 @@
   with_items:
     - lshw
     - lldpd
-    - ruby
-    - rubygems
     
 - shell: /usr/sbin/lshw > /tmp/it-lshw-report.xml creates=/tmp/it-lshw-report.xml
 
@@ -16,9 +14,3 @@
 - file: path=/var/db owner=root group=root mode=0755 state=directory  
 
 - template: src=collins.yml.j2 dest=/var/db/collins.yml mode=0644
-
-- gem: name=collins_auth state=latest
-
-- copy: src=intake.rb dest=/var/db/intake.rb owner=root group=root mode=0755
-
-- shell: /var/db/intake.rb creates=/var/db/intake.lock

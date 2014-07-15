@@ -4,4 +4,6 @@
     - /root/dest/ansible_variables.yml
   roles:
     - base
+    - ruby
+    - intake
     - omsa
