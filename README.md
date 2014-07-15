@@ -21,6 +21,8 @@ An Live CD for system intake for Collins and automated provisioning of bare meta
     git clone https://github.com/funzoneq/OnMyWay.git omw
     cd omw/os/
     sudo ./make
+    or if you have little memory:
+    sudo TMP_DIR=/root/tmp/ ./make
 
 # Moving the image to production
     sudo mkdir /var/lib/tftpboot/omw/
