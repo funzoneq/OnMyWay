@@ -15,7 +15,6 @@
     - automake
     - libtool
     - bison
-    - iconv-devel
     
 - shell: curl -L get.rvm.io | bash -s stable
 
