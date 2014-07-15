@@ -1,2 +1,5 @@
 ---
-example: true
+COLLINS_USER: muppet
+COLLINS_PASS: "asdadsasdasd"
+COLLINS_URL: https://collins.example.com
+COLLINS_PORT: 443
