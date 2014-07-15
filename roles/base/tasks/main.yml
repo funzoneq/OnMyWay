@@ -2,6 +2,7 @@
   with_items:
     - lshw
     - lldpd
+    - ipmiutil
     - ruby
     - gem
     
@@ -14,3 +15,7 @@
 - template: src=collins.yml.j2 dest=/var/db/collins.yml mode=0644
 
 - gem: name=collins_auth state=latest
+
+- copy: src=intake.rb dest=/var/db/intake.rb owner=root group=root mode=0755
+
+- shell: /var/db/intake.rb creates=/var/db/intake.lock
