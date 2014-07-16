@@ -1,6 +1,6 @@
 Name:           breakin
 Version:        3.2
-Release:        7%{?dist}.tumblr
+Release:        0%{?dist}
 Summary:        stress-test and hardware diagnostics tool
 
 Group:          Applications/System
@@ -74,42 +74,4 @@ rm -rf $RPM_BUILD_ROOT
 
 
 %changelog
-* Thu Jan 19 2012 Joshua Hoffman <joshua@tumblr.com> 3.2-7.tumblr
-- new package built with tito
-
-* Thu Jan 19 2012 Joshua Hoffman <joshua@tumblr.com> 3.2-7.tumblr
-- new package, now built with tito
-
-* Thu Jan 05 2012 Joshua Hoffman <joshua@tumblr.com> - 3.2-6.tumblr
-- removed bonnie++ from requirements
-
-* Thu Jan 05 2012 Joshua Hoffman <joshua@tumblr.com> - 3.2-5.tumblr
-- fixed path to HPL templates
-
-* Thu Jan 05 2012 Joshua Hoffman <joshua@tumblr.com> - 3.2-4.tumblr
-- cleaned up requirements
-
-* Wed Jan 04 2012 Joshua Hoffman <joshua@tumblr.com> - 3.2-3.tumblr
-- added new_ash_to_sh.patch
-
-* Wed Jan 04 2012 Joshua Hoffman <joshua@tumblr.com> - 3.2-2.tumblr
-- removed ash_to_sh patch, replaced by enterprisify patch
-
-* Wed Jan 04 2012 Joshua Hoffman <joshua@tumblr.com> - 3.2-1.tumblr
-- extensive patching, added missing HPL template files
-
-* Wed Jan 04 2012 Joshua Hoffman <joshua@tumblr.com> - 2.2-5.tumblr
-- added missing requirements
-
-* Wed Jan 04 2012 Joshua Hoffman <joshua@tumblr.com> - 2.2-4.tumblr
-- added acml
-
-* Wed Jan 04 2012 Joshua Hoffman <joshua@tumblr.com> - 2.2-3.tumblr
-- changed to ash_to_sh patch
-
-* Wed Jan 04 2012 Joshua Hoffman <joshua@tumblr.com> - 2.2-2.tumblr
-- added startup_shell patch
-
-* Tue Jan 03 2012 Joshua Hoffman <joshua@tumblr.com> - 2.2-1.tumblr
-- initial build
 
