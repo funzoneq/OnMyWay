@@ -6,7 +6,7 @@ Summary:        stress-test and hardware diagnostics tool
 Group:          Applications/System
 License:        open source
 URL:            http://www.advancedclustering.com/software/breakin.html
-Source0:        breakin-%{version}.tar.gz
+Source0:        breakin-%{version}.tar.bz2
 Source1:        breakin-HPL-top.txt
 Source2:        breakin-HPL-middle.txt
 Source3:        breakin-HPL-bottom.txt
