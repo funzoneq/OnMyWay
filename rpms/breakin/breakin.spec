@@ -1,6 +1,6 @@
 Name:           breakin
 Version:        3.2
-Release:        1%{?dist}
+Release:        2%{?dist}
 Summary:        stress-test and hardware diagnostics tool
 
 Group:          Applications/System
@@ -74,6 +74,9 @@ rm -rf $RPM_BUILD_ROOT
 
 
 %changelog
+* Wed Jul 16 2014 Arnoud Vermeer <a.vermeer@freshway.biz> 3.2-2
+- Fix source (a.vermeer@freshway.biz)
+
 * Wed Jul 16 2014 Arnoud Vermeer <a.vermeer@freshway.biz> 3.2-1
 - Initial package (a.vermeer@freshway.biz)
 
