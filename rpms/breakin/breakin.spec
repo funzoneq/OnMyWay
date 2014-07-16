@@ -1,6 +1,6 @@
 Name:           breakin
 Version:        3.2
-Release:        7%{?dist}.tumblr
+Release:        8%{?dist}.tumblr
 Summary:        stress-test and hardware diagnostics tool
 
 Group:          Applications/System
@@ -74,6 +74,9 @@ rm -rf $RPM_BUILD_ROOT
 
 
 %changelog
+* Wed Jul 16 2014 Arnoud Vermeer <a.vermeer@freshway.biz> 3.2-8.tumblr
+- new package built with tito
+
 * Thu Jan 19 2012 Joshua Hoffman <joshua@tumblr.com> 3.2-7.tumblr
 - new package built with tito
 
