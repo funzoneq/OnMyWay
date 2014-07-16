@@ -1,0 +1,4 @@
+1            # of NBs
+80    	NBs
+0            PMAP process mapping (0=Row-,1=Column-major)
+1            # of process grids (P x Q)

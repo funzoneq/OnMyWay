@@ -1,0 +1,36 @@
+diff -uNr breakin-3.2/scripts/dumplog.sh breakin-3.2-new_ash_to_sh/scripts/dumplog.sh
+--- breakin-3.2/scripts/dumplog.sh	2011-12-31 22:53:59.000000000 -0500
++++ breakin-3.2-new_ash_to_sh/scripts/dumplog.sh	2012-01-04 21:44:55.136345293 -0500
+@@ -1,4 +1,4 @@
+-#!/bin/ash
++#!/bin/sh
+ 
+ trymount() {
+ 	DEV_NAME=$1
+diff -uNr breakin-3.2/scripts/hardware.sh breakin-3.2-new_ash_to_sh/scripts/hardware.sh
+--- breakin-3.2/scripts/hardware.sh	2011-12-31 22:53:59.000000000 -0500
++++ breakin-3.2-new_ash_to_sh/scripts/hardware.sh	2012-01-04 21:45:01.768342658 -0500
+@@ -1,4 +1,4 @@
+-#!/bin/ash
++#!/bin/sh
+ 
+ 
+ # this has been removed and added to startup instead of inside of breakin
+diff -uNr breakin-3.2/scripts/startup.sh breakin-3.2-new_ash_to_sh/scripts/startup.sh
+--- breakin-3.2/scripts/startup.sh	2011-12-31 22:53:59.000000000 -0500
++++ breakin-3.2-new_ash_to_sh/scripts/startup.sh	2012-01-04 21:45:12.841279408 -0500
+@@ -1,4 +1,4 @@
+-#!/bin/ash
++#!/bin/sh
+ 
+ ARGS=""
+ 
+diff -uNr breakin-3.2/scripts/stop.sh breakin-3.2-new_ash_to_sh/scripts/stop.sh
+--- breakin-3.2/scripts/stop.sh	2011-12-31 22:53:59.000000000 -0500
++++ breakin-3.2-new_ash_to_sh/scripts/stop.sh	2012-01-04 21:45:52.545223984 -0500
+@@ -1,4 +1,4 @@
+-#!/bin/ash
++#!/bin/sh
+ sync
+ umount /var/logdev
+ echo "Breakin was stopped"

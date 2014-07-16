@@ -1,0 +1,257 @@
+diff -uNr breakin-3.2/scripts/tests/badblocks breakin-3.2-enterprisisfy/scripts/tests/badblocks
+--- breakin-3.2/scripts/tests/badblocks	2011-12-31 22:53:59.000000000 -0500
++++ breakin-3.2-enterprisisfy/scripts/tests/badblocks	2012-01-04 21:21:51.474604215 -0500
+@@ -1,6 +1,6 @@
+-#!/bin/ash
++#!/bin/sh
+ 
+-. /etc/library.sh
++. /etc/breakin/library.sh
+ 
+ # read in our hardware configs
+ if [ -e /var/run/breakin.dat ]
+@@ -22,7 +22,7 @@
+ do
+ 	DRIVE_NAME=`eval echo \\\$DISK_${I}_NAME`
+ 
+-	/usr/bin/badblocks -b 4096 -v /dev/${DRIVE_NAME} > /tmp/badblocks.${DRIVE_NAME}.log 2>&1
++	/sbin/badblocks -b 4096 -v /dev/${DRIVE_NAME} > /tmp/badblocks.${DRIVE_NAME}.log 2>&1
+ 	if [ "$?" != 0 ]
+ 	then
+ 		echo "Disk drive check failed on device ${DRIVE_NAME}"
+diff -uNr breakin-3.2/scripts/tests/ecc breakin-3.2-enterprisisfy/scripts/tests/ecc
+--- breakin-3.2/scripts/tests/ecc	2011-12-31 22:53:59.000000000 -0500
++++ breakin-3.2-enterprisisfy/scripts/tests/ecc	2012-01-04 21:21:51.484283527 -0500
+@@ -1,6 +1,6 @@
+-#!/bin/ash
++#!/bin/sh
+ 
+-. /etc/library.sh
++. /etc/breakin/library.sh
+ 
+ # read in our hardware configs
+ if [ -e /var/run/breakin.dat ]
+diff -uNr breakin-3.2/scripts/tests/failid breakin-3.2-enterprisisfy/scripts/tests/failid
+--- breakin-3.2/scripts/tests/failid	2011-12-31 22:53:59.000000000 -0500
++++ breakin-3.2-enterprisisfy/scripts/tests/failid	2012-01-04 21:21:51.485271629 -0500
+@@ -1,7 +1,7 @@
+-#!/bin/ash
++#!/bin/sh
+ # read breakin.dat every 2 seconds and blink the LED if everything is fine
+ 
+-. /etc/library.sh
++. /etc/breakin/library.sh
+ 
+ # read in our hardware configs
+ if [ -e /var/run/breakin.dat ]
+diff -uNr breakin-3.2/scripts/tests/hdhealth breakin-3.2-enterprisisfy/scripts/tests/hdhealth
+--- breakin-3.2/scripts/tests/hdhealth	2011-12-31 22:53:59.000000000 -0500
++++ breakin-3.2-enterprisisfy/scripts/tests/hdhealth	2012-01-04 21:21:51.486203667 -0500
+@@ -1,6 +1,6 @@
+-#!/bin/ash
++#!/bin/sh
+ 
+-. /etc/library.sh
++. /etc/breakin/library.sh
+ 
+ # read in our hardware configs
+ if [ -e /var/run/breakin.dat ]
+@@ -26,7 +26,7 @@
+ 
+ 	TEMPS="${DRIVE_NAME}: `hddtemp -n -uC /dev/${DRIVE_NAME}`C ${TEMPS}"
+ 
+-	/usr/bin/smartctl -q silent -a /dev/${DRIVE_NAME} > /dev/null 2>&1
++	/usr/sbin/smartctl -q silent -a /dev/${DRIVE_NAME} > /dev/null 2>&1
+ 	ERRCODE=$?
+ 
+ 	if [ "${ERRCODE}" = 4 ]
+diff -uNr breakin-3.2/scripts/tests/hpl breakin-3.2-enterprisisfy/scripts/tests/hpl
+--- breakin-3.2/scripts/tests/hpl	2011-12-31 22:53:59.000000000 -0500
++++ breakin-3.2-enterprisisfy/scripts/tests/hpl	2012-01-04 21:21:51.486203667 -0500
+@@ -1,6 +1,6 @@
+-#!/bin/ash
++#!/bin/sh
+ 
+-. /etc/library.sh
++. /etc/breakin/library.sh
+ 
+ # read in our hardware configs
+ if [ -e /var/run/breakin.dat ]
+@@ -8,17 +8,19 @@
+ 	. /var/run/breakin.dat
+ fi
+ 
+-BINARY="xhpl.amd"
++BINARY="xhpl"
+ RUNNING_JOB=""
+ 
+-echo "${CPU_MODEL}" | grep "Intel" > /dev/null 2>&1
+-if [ "$?" = "0" ]
+-then
+-	BINARY="xhpl.intel"
+-fi
++#echo "${CPU_MODEL}" | grep "Intel" > /dev/null 2>&1
++#if [ "$?" = "0" ]
++#then
++#	BINARY="xhpl.intel"
++#fi
++
++HPL_DATA_FILE=/tmp/HPL.dat
+ 
+ # the top template
+-cat /usr/local/breakin/hpl/HPL-top.txt > /usr/local/breakin/hpl/HPL.dat
++cat /etc/breakin/HPL-top.txt > $HPL_DATA_FILE
+ 
+ # we first figure out our N based on the ammount of RAM we have
+ N_SIZE=`/usr/local/bin/hpl_calc_n ${MEM_TOTAL}`
+@@ -27,80 +29,81 @@
+ #	N_SIZE=$(($((N_SIZE / 3)) * 2))
+ #fi
+ 
+-echo "${N_SIZE}         Ns" >> /usr/local/breakin/hpl/HPL.dat
++echo "${N_SIZE}         Ns" >> $HPL_DATA_FILE
+ 
+-cat /usr/local/breakin/hpl/HPL-middle.txt >> /usr/local/breakin/hpl/HPL.dat
++cat /etc/breakin/HPL-middle.txt >> $HPL_DATA_FILE
+ 
+ if [ "${CPU_QTY}" = "1" ]
+ then
+-	echo "1     Ps" >> /usr/local/breakin/hpl/HPL.dat	
+-	echo "1     Qs" >> /usr/local/breakin/hpl/HPL.dat	
++	echo "1     Ps" >> $HPL_DATA_FILE	
++	echo "1     Qs" >> $HPL_DATA_FILE	
+ 
+ elif [ "${CPU_QTY}" = "2" ]
+ then
+ 
+-	echo "2     Ps" >> /usr/local/breakin/hpl/HPL.dat
+-	echo "1     Qs" >> /usr/local/breakin/hpl/HPL.dat
++	echo "2     Ps" >> $HPL_DATA_FILE
++	echo "1     Qs" >> $HPL_DATA_FILE
+ 
+ elif [ "${CPU_QTY}" = "3" ]
+ then
+ 
+-	echo "3     Ps" >> /usr/local/breakin/hpl/HPL.dat
+-	echo "1     Qs" >> /usr/local/breakin/hpl/HPL.dat
++	echo "3     Ps" >> $HPL_DATA_FILE
++	echo "1     Qs" >> $HPL_DATA_FILE
+ 
+ elif [ "${CPU_QTY}" = "4" ]
+ then
+ 
+-	echo "2     Ps" >> /usr/local/breakin/hpl/HPL.dat
+-	echo "2     Qs" >> /usr/local/breakin/hpl/HPL.dat
++	echo "2     Ps" >> $HPL_DATA_FILE
++	echo "2     Qs" >> $HPL_DATA_FILE
+ 
+ elif [ "${CPU_QTY}" = "6" ]
+ then
+ 
+-	echo "3     Ps" >> /usr/local/breakin/hpl/HPL.dat
+-	echo "2     Qs" >> /usr/local/breakin/hpl/HPL.dat
++	echo "3     Ps" >> $HPL_DATA_FILE
++	echo "2     Qs" >> $HPL_DATA_FILE
+ 
+ elif [ "${CPU_QTY}" = "8" ]
+ then
+ 
+-	echo "4     Ps" >> /usr/local/breakin/hpl/HPL.dat
+-	echo "2     Qs" >> /usr/local/breakin/hpl/HPL.dat
++	echo "4     Ps" >> $HPL_DATA_FILE
++	echo "2     Qs" >> $HPL_DATA_FILE
+ 
+ elif [ "${CPU_QTY}" = "12" ]
+ then
+ 
+-	echo "4     Ps" >> /usr/local/breakin/hpl/HPL.dat
+-	echo "3     Qs" >> /usr/local/breakin/hpl/HPL.dat
++	echo "4     Ps" >> $HPL_DATA_FILE
++	echo "3     Qs" >> $HPL_DATA_FILE
+ 
+ elif [ "${CPU_QTY}" = "16" ]
+ then
+ 
+-	echo "4     Ps" >> /usr/local/breakin/hpl/HPL.dat
+-	echo "4     Qs" >> /usr/local/breakin/hpl/HPL.dat
++	echo "4     Ps" >> $HPL_DATA_FILE
++	echo "4     Qs" >> $HPL_DATA_FILE
+ 
+ elif [ "${CPU_QTY}" = "24" ]
+ then
+ 
+-	echo "6     Ps" >> /usr/local/breakin/hpl/HPL.dat
+-	echo "4     Qs" >> /usr/local/breakin/hpl/HPL.dat
++	echo "6     Ps" >> $HPL_DATA_FILE
++	echo "4     Qs" >> $HPL_DATA_FILE
+ 
+ elif [ "${CPU_QTY}" = "32" ]
+ then
+ 
+-	echo "8     Ps" >> /usr/local/breakin/hpl/HPL.dat
+-	echo "4     Qs" >> /usr/local/breakin/hpl/HPL.dat
++	echo "8     Ps" >> $HPL_DATA_FILE
++	echo "4     Qs" >> $HPL_DATA_FILE
+ elif [ "${CPU_QTY}" = "48" ]
+ then
+ 
+-	echo "8     Ps" >> /usr/local/breakin/hpl/HPL.dat
+-	echo "6     Qs" >> /usr/local/breakin/hpl/HPL.dat
++	echo "8     Ps" >> $HPL_DATA_FILE
++	echo "6     Qs" >> $HPL_DATA_FILE
+ elif [ "${CPU_QTY}" = "64" ]
+ then
+ 
+-	echo "8     Ps" >> /usr/local/breakin/hpl/HPL.dat
+-	echo "8     Qs" >> /usr/local/breakin/hpl/HPL.dat
++	echo "8     Ps" >> $HPL_DATA_FILE
++	echo "8     Qs" >> $HPL_DATA_FILE
+ fi
+-cat /usr/local/breakin/hpl/HPL-bottom.txt >> /usr/local/breakin/hpl/HPL.dat
++
++cat /etc/breakin/HPL-bottom.txt >> $HPL_DATA_FILE
+ 
+ 
+ OMP_NUM_THREADS=1
+@@ -110,17 +113,19 @@
+ PATH=/bin:/usr/bin:/usr/local/bin
+ export PATH
+ 
+-cd /usr/local/breakin/hpl
+-if [ -x /usr/local/bin/${BINARY} ]
++# change to the dir with the data file in it
++cd /tmp
++
++if [ -x /usr/sbin/${BINARY} ]
+ then
+-	/usr/local/bootimage-openmpi/bin/orterun -np ${CPU_QTY} -mca btl sm,self -stdin none /usr/local/bin/${BINARY} > /tmp/hpl.log 2>&1
++	/usr/lib64/openmpi/bin/orterun -np ${CPU_QTY} -mca btl sm,self -stdin none /usr/sbin/${BINARY} > /tmp/hpl.log 2>&1
+ else
+ 	echo "Binary for this host CPU variant is not available."
+ fi
+ 
+ if [ "$?" -ne 0 ]
+ then
+-	cat /tmp/hpl.log > /errors/hpl.log
++	cat /tmp/hpl.log > /var/log/hpl.log
+ 	echo "test failed possible memory or cpu errors" 
+ 	exit 1
+ else
+diff -uNr breakin-3.2/scripts/tests/mcelog breakin-3.2-enterprisisfy/scripts/tests/mcelog
+--- breakin-3.2/scripts/tests/mcelog	2011-12-31 22:53:59.000000000 -0500
++++ breakin-3.2-enterprisisfy/scripts/tests/mcelog	2012-01-04 21:21:51.488320337 -0500
+@@ -1,11 +1,11 @@
+-#!/bin/ash
++#!/bin/sh
+ # read /dev/mcelog every 5 seconds because that's the kernel interval
+ 
+-. /etc/library.sh
++. /etc/breakin/library.sh
+ 
+ FOUND_ERROR=0
+ 
+-OUTPUT=`/usr/bin/mcelog --dmi`
++OUTPUT=`/usr/sbin/mcelog --dmi`
+ RETVAL=$?
+ if [ $RETVAL = 1 ]
+ then

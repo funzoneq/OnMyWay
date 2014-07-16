@@ -13,6 +13,7 @@ repo --name=fastbugs --baseurl=http://ftp.nluug.nl/os/Linux/distr/scientific/6/x
 repo --name=security --baseurl=http://ftp.nluug.nl/os/Linux/distr/scientific/6/x86_64/updates/security/
 repo --name=dell     --baseurl=http://linux.dell.com/repo/hardware/latest/platform_independent/rh60_64/
 repo --name=freshway --baseurl=http://vps.us.freshway.biz/CentOS-6-Production-x86_64/RPMS.freshway/
+repo --name=lldpd    --baseurl=http://download.opensuse.org/repositories/home:/vbernat/CentOS_CentOS-6/
 
 %packages --excludedocs
 aic94xx-firmware

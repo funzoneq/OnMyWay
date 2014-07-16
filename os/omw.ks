@@ -4,11 +4,14 @@
 
 %packages
 ansible
-ipmiutil
-freeipmi
-openssh-server
-git
 boot_script
+breakin
+freeipmi
+git
+ipmiutil
+lldpd
+lshw
+openssh-server
 %end
 
 %post
