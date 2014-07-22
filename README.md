@@ -3,6 +3,8 @@ OnMyWay
 
 An Live CD for system intake for Collins and automated provisioning of bare metal with Ansible.
 
+Use https://github.com/funzoneq/collins-ipxe-router or do:
+
 # Setting up PXE
     sudo yum -y install syslinux tftp-server
     sudo sed -i 's/disable\s*=\s*yes/disable = no/' /etc/xinetd.d/tftp
