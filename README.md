@@ -18,13 +18,17 @@ If you are building a collins stack use this https://github.com/funzoneq/collins
     next-server xxx.xxx.xxx.xxx; 
     filename "/pxelinux.0";" > /etc/dhcp/dhcpd.conf
 
-# Getting started
+# Compile it yourself
     sudo yum -y install livecd-tools createrepo git
     git clone https://github.com/funzoneq/OnMyWay.git omw
     cd omw/os/
     sudo ./make
     or if you have little memory:
     sudo TMP_DIR=/root/tmp/ ./make
+    
+# Download the pre-built binary
+
+    wget http://vps.us.freshway.biz/OnMyWay/LATEST -O omw.iso
 
 # Moving the image to production
     sudo mkdir /var/lib/tftpboot/omw/
