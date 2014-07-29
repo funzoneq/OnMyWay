@@ -2,6 +2,4 @@
 
 - shell: source /etc/profile.d/rvm.sh && /usr/local/rvm/bin/rvm install 1.9.3
 
-- shell: source /etc/profile.d/rvm.sh && /usr/local/rvm/bin/rvm use 1.9.3 --default 
-
-- shell: source /etc/profile.d/rvm.sh && /usr/local/rvm/bin/rvm rubygems current
+- shell: source /etc/profile.d/rvm.sh && /usr/local/rvm/bin/rvm use 1.9.3 --default
