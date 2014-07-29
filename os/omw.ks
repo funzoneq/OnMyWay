@@ -12,6 +12,7 @@ ipmiutil
 lldpd
 lshw
 openssh-server
+ipmitool
 %end
 
 %post
