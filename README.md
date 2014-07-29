@@ -26,12 +26,12 @@ If you are building a collins stack use this https://github.com/funzoneq/collins
     or if you have little memory:
     sudo TMP_DIR=/root/tmp/ ./make
     
-# Download the pre-built binary
+# Download the pre-built PXE boot binaries
 
-    wget http://vps.us.freshway.biz/OnMyWay/LATEST -O omw.iso
+    wget http://vps.us.freshway.biz/OnMyWay/initrd0.img -O /var/lib/tftpboot/omw/initrd0.img
+    wget http://vps.us.freshway.biz/OnMyWay/vmlinuz0 -O /var/lib/tftpboot/omw/vmlinuz0
 
 # Moving the image to production
     sudo mkdir /var/lib/tftpboot/omw/
     sudo cp tftpboot/{initrd0.img,vmlinuz0} /var/lib/tftpboot/omw/
-    sudo cp omw.iso /var/lib/tftpboot/
     sudo cp ../pxe/default /var/lib/tftpboot/pxelinux.cfg
