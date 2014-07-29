@@ -11,9 +11,9 @@
     - lshw
     - lldpd
     
-- shell: /usr/sbin/lshw > /tmp/it-lshw-report.xml creates=/tmp/it-lshw-report.xml
+- shell: /usr/sbin/lshw -quiet -xml > /tmp/it-lshw-report.xml creates=/tmp/it-lshw-report.xml
 
-- shell: /usr/sbin/lldpctl > /tmp/it-lldp-report.xml creates=/tmp/it-lldp-report.xml
+- shell: /usr/sbin/lldpctl -f xml > /tmp/it-lldp-report.xml creates=/tmp/it-lldp-report.xml
 
 - file: path=/var/db owner=root group=root mode=0755 state=directory  
 
