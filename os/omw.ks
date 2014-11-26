@@ -3,12 +3,12 @@
 %include sl6.ks
 
 %packages
+ruby
 ansible
 boot_script
 breakin
-freeipmi
 git
-ipmiutil
+ipmitool
 lldpd
 lshw
 openssh-server

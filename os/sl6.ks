@@ -14,6 +14,7 @@ repo --name=security --baseurl=http://ftp.nluug.nl/os/Linux/distr/scientific/6/x
 repo --name=dell     --baseurl=http://linux.dell.com/repo/hardware/latest/platform_independent/rh60_64/
 repo --name=freshway --baseurl=http://vps.us.freshway.biz/CentOS-6-Production-x86_64/RPMS.freshway/
 repo --name=lldpd    --baseurl=http://download.opensuse.org/repositories/home:/vbernat/CentOS_CentOS-6/
+repo --name=ruby     --baseurl=http://rpms.southbridge.ru/rhel6/ruby-1.9.3/x86_64/
 
 %packages --excludedocs
 aic94xx-firmware
@@ -22,6 +23,7 @@ b43-openfwwf
 bfa-firmware
 efibootmgr
 grub
+kernel-firmware
 ipw2100-firmware
 ipw2200-firmware
 ivtv-firmware
@@ -34,7 +36,6 @@ iwl5150-firmware
 iwl6000-firmware
 iwl6000g2a-firmware
 iwl6050-firmware
-kernel-firmware
 libertas-usb8388-firmware
 ql2100-firmware
 ql2200-firmware
