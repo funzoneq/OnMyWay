@@ -39,6 +39,11 @@ Kernel \r
 
 EOF
 
+echo '---> Modprobe IPMI'
+cat > /etc/modprobe.d/ipmi_si.conf <<EOF
+alias ipmi_si ipmi_devintf
+EOF
+
 echo '---> configuring OpenIPMI'
 /sbin/chkconfig ipmi on
 
