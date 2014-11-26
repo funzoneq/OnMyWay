@@ -1,5 +1,1 @@
-- shell: curl -L get.rvm.io | bash -s stable
-
-- shell: source /etc/profile.d/rvm.sh && /usr/local/rvm/bin/rvm install 1.9.3
-
-- shell: source /etc/profile.d/rvm.sh && /usr/local/rvm/bin/rvm use 1.9.3 --default
+- yum: name=http://rpms.southbridge.ru/rhel6/ruby-1.9.3/x86_64/ruby-1.9.3.p547-1.el6.x86_64.rpm state=present
