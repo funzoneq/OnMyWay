@@ -45,7 +45,7 @@ alias ipmi_si ipmi_devintf
 EOF
 
 echo '---> configuring OpenIPMI'
-/sbin/chkconfig ipmi on
+/sbin/chkconfig ipmievd on
 
 
 echo '---> configuring rsyslog'
