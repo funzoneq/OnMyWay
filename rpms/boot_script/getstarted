@@ -32,6 +32,9 @@ do
     /sbin/ip link set $n up
 done
 
+/sbin/modprobe ipmi_si
+/sbin/modprobe ipmi_devintf
+
 # chill for a bit in case the network is slow to wake up
 # 30s allows lldpd time to send hellos
 sleep 30s
