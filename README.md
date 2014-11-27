@@ -37,4 +37,5 @@ If you are building a collins stack use this https://github.com/funzoneq/collins
     sudo cp ../pxe/default /var/lib/tftpboot/pxelinux.cfg
     
 # Credentials
-    root : onmyway
+    username: root
+    password: onmyway
