@@ -35,3 +35,6 @@ If you are building a collins stack use this https://github.com/funzoneq/collins
     sudo mkdir /var/lib/tftpboot/omw/
     sudo cp tftpboot/{initrd0.img,vmlinuz0} /var/lib/tftpboot/omw/
     sudo cp ../pxe/default /var/lib/tftpboot/pxelinux.cfg
+    
+# Credentials
+    root : onmyway
