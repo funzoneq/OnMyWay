@@ -3,3 +3,4 @@
 - copy: src=intake.rb dest=/var/db/intake.rb owner=root group=root mode=0755
 
 - shell: /var/db/intake.rb creates=/var/db/intake.lock
+  ignore_errors: yes

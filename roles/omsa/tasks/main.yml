@@ -14,3 +14,7 @@
     - srvadmin-omacore
     - srvadmin-omcommon
     - dell-bmc-utils
+
+- copy: src=ipmi.sh dest=/usr/bin/ipmi.sh mode=0755
+
+- shell: /usr/bin/ipmi.sh

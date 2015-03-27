@@ -6,4 +6,4 @@
     - base
     - ruby
     - intake
-    - omsa
+    - { role: omsa, when: ansible_system_vendor == 'Dell Inc.' }
