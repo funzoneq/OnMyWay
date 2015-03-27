@@ -13,6 +13,7 @@ lldpd
 lshw
 openssh-server
 ipmitool
+dmidecode
 %end
 
 %post
