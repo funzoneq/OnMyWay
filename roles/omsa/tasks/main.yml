@@ -3,8 +3,6 @@
 
 - shell: yum clean all
 
-- shell: yum check-update
-
 - yum: name={{ item }} state=latest
   with_items:
     - dell_ft_install
