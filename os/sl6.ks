@@ -1,5 +1,4 @@
 lang en_US.UTF-8
-langsupport en_US.UTF-8
 keyboard us
 timezone Etc/UTC
 auth --useshadow --enablemd5
