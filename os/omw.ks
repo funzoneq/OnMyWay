@@ -8,12 +8,13 @@ ansible
 boot_script
 breakin
 git
-ipmitool
 lldpd
 lshw
 openssh-server
-ipmitool
 dmidecode
+OpenIPMI
+OpenIPMI-tools
+syscfg
 %end
 
 %post
@@ -32,7 +33,6 @@ EOL
 echo '---> setting hostname'
 sed -i -e 's/HOSTNAME=.*/HOSTNAME=omw/' /etc/sysconfig/network
 
-
 echo '---> rewromwing /etc/issue'
 cat > /etc/issue <<EOF
 On My Way Live OS v1.0.1
@@ -40,14 +40,8 @@ Kernel \r
 
 EOF
 
-echo '---> Modprobe IPMI'
-cat > /etc/modprobe.d/ipmi_si.conf <<EOF
-alias ipmi_si ipmi_devintf
-EOF
-
 echo '---> configuring OpenIPMI'
-/sbin/chkconfig ipmievd on
-
+/sbin/chkconfig ipmi on
 
 echo '---> configuring rsyslog'
 cat >> /etc/rsyslog.conf <<EOL
