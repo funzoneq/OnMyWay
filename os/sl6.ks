@@ -1,6 +1,7 @@
 lang en_US.UTF-8
+langsupport en_US.UTF-8
 keyboard us
-timezone US/Eastern
+timezone Etc/UTC
 auth --useshadow --enablemd5
 selinux --disabled
 firewall --disabled
@@ -15,6 +16,7 @@ repo --name=dell     --baseurl=http://linux.dell.com/repo/hardware/latest/platfo
 repo --name=freshway --baseurl=http://vps.us.freshway.biz/CentOS-6-Production-x86_64/RPMS.freshway/
 repo --name=lldpd    --baseurl=http://download.opensuse.org/repositories/home:/vbernat/CentOS_CentOS-6/
 repo --name=ruby     --baseurl=http://rpms.southbridge.ru/rhel6/ruby-1.9.3/x86_64/
+repo --name=omsa     --baseurl=http://linux.dell.com/repo/hardware/latest/platform_independent/rh60_64
 
 %packages --excludedocs
 aic94xx-firmware
@@ -58,8 +60,6 @@ filesystem
 glibc
 initscripts
 iproute
-iptables-ipv6
-iptables
 iputils
 kbd
 ncurses
