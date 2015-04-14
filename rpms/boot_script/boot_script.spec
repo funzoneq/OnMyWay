@@ -1,6 +1,6 @@
 Name:           boot_script
 Version:        1.0.1
-Release:        4%{?dist}
+Release:        5%{?dist}
 Summary:        Reads /proc/cmdline for arguments to use process as scripts
 Group:          Systems Administration
 License:        Tumblr
@@ -46,6 +46,9 @@ rm -rf $RPM_BUILD_ROOT
 /usr/bin/getstarted
 
 %changelog
+* Tue Apr 14 2015 Arnoud Vermeer <a.vermeer@tech.leaseweb.com> 1.0.1-5
+- Update getstarted (a.vermeer@freshway.biz)
+
 * Thu Nov 27 2014 Arnoud Vermeer <a.vermeer@freshway.biz> 1.0.1-4
 - Modprobe IPMI (a.vermeer@freshway.biz)
 
